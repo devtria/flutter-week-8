@@ -1,5 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_assignment_8/screen/login_screen.dart';
+import 'package:flutter_assignment_8/screen/user_info_screen.dart';
 
 class AuthWrapper extends StatelessWidget {
   const AuthWrapper({Key? key}) : super(key: key);
@@ -16,7 +18,7 @@ class AuthWrapper extends StatelessWidget {
         }
 
         if (snapshot.hasData) {
-          return userInfoScreen(user: snapshot.data!);
+          return UserInfoScreen(user: snapshot.data!);
         }
 
         return const LoginScreen();
