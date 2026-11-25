@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_assignment_8/fcm_token_card.dart';
 
 class UserInfoScreen extends StatelessWidget {
   final User user;
@@ -23,8 +24,7 @@ class UserInfoScreen extends StatelessWidget {
           ),
         ],
       ),
-
-      body: Center(
+      body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(24.0),
           child: Column(
@@ -35,16 +35,12 @@ class UserInfoScreen extends StatelessWidget {
                 radius: 50,
                 child: Icon(Icons.person, size: 60),
               ),
-
               const SizedBox(height: 24),
-
               const Text(
                 "Informasi Pengguna",
                 style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
               ),
-
               const SizedBox(height: 24),
-
               Card(
                 child: Padding(
                   padding: const EdgeInsets.all(16.0),
@@ -53,10 +49,8 @@ class UserInfoScreen extends StatelessWidget {
                     children: [
                       Text("UID: ${user.uid}"),
                       const SizedBox(height: 12),
-
                       Text("Email: ${user.email ?? '-'}"),
                       const SizedBox(height: 12),
-
                       Text(
                         "Email Verified: ${user.emailVerified ? 'Ya' : 'Belum'}",
                       ),
@@ -64,9 +58,9 @@ class UserInfoScreen extends StatelessWidget {
                   ),
                 ),
               ),
-
-              const SizedBox(height: 24),
-
+              const SizedBox(height: 16),
+              FcmTokenCard(),
+              const SizedBox(height: 16),
               SizedBox(
                 width: double.infinity,
                 child: ElevatedButton.icon(
